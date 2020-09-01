@@ -2,7 +2,7 @@
   "options": {
     "paths": {
       "root": "",
-      "mbtiles": "mbtiles"
+      "mbtiles": ""
     },
     "domains": [
       "localhost:8080"
