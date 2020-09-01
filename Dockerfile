@@ -1,8 +1,7 @@
-FROM klokantech/tileserver-gl:v2.6.0
+FROM klokantech/tileserver-gl
 
-WORKDIR /usr/src/
+WORKDIR /data
 
-RUN chown -R node:node /usr/src
-USER node
+COPY ./ /data
 
-COPY ./ /usr/src
+CMD ["--verbose", "falklands.mbtiles"]
