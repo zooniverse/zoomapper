@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoomapper-production-app
+  labels:
+    app: zoomapper-production-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zoomapper-production-app
+  template:
+    metadata:
+      labels:
+        app: zoomapper-production-app
+    spec:
+      containers:
+        - name: zoomapper-production-app
+          image: zooniverse/zoomapper:__IMAGE_TAG__
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "10m"
+            limits:
+              memory: "200Mi"
+              cpu: "500m"
+          env:
+            - name: RAILS_LOG_TO_STDOUT
+              value: "true"
+            - name: RAILS_ENV
+              value: production
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: zoomapper-production
+                  key: rails-master-key
+          volumeMounts:
+          - mountPath: /tmp
+            name: zoomapper-production-app-data
+      volumes:
+        - name: zoomapper-production-app-data
+          hostPath:
+            # directory location on host node temp disk
+            path: /mnt/zoomapper-production-app-data
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zoomapper-production-app
+spec:
+  selector:
+    app: zoomapper-production-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
