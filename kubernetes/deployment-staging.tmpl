@@ -24,25 +24,6 @@ spec:
             limits:
               memory: "200Mi"
               cpu: "500m"
-          env:
-            - name: RAILS_LOG_TO_STDOUT
-              value: "true"
-            - name: RAILS_ENV
-              value: staging
-            - name: RAILS_MASTER_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: zoomapper-staging
-                  key: rails-master-key
-          volumeMounts:
-          - mountPath: /tmp
-            name: zoomapper-staging-app-data
-      volumes:
-        - name: zoomapper-staging-app-data
-          hostPath:
-            # directory location on host node temp disk
-            path: /mnt/zoomapper-staging-app-data
-            type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: Service
