@@ -1,0 +1,16 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "mbtiles": "mbtiles"
+    },
+    "domains": [
+      "localhost:8080"
+    ]
+  },
+  "data": {
+    "falklands": {
+      "mbtiles": "falklands.mbtiles"
+    }
+  }
+}
