@@ -42,18 +42,17 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: zoomapper-staging-ingress
+  name: zoomapper-staging.zooniverse.org
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
     nginx.ingress.kubernetes.io/set-real-ip-from: "10.0.0.0/8"
 spec:
   tls:
   - hosts:
     - zoomapper-staging.zooniverse.org
-    secretName: zoomapper-staging-tls-secret
+    secretName: zoomapper-staging-tls
   rules:
   - host: zoomapper-staging.zooniverse.org
     http:
@@ -61,4 +60,4 @@ spec:
       - backend:
           serviceName: zoomapper-staging-app
           servicePort: 80
-        path: /(.*)
+        path: /
