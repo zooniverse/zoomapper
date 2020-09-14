@@ -1,3 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: zoomapper-production-tls
+  labels:
+    use-azuredns-solver: "true"
+spec:
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  secretName: zoomapper-production-tls
+  dnsNames:
+    - zoomapper.zooniverse.org
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
