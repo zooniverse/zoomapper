@@ -44,4 +44,4 @@ Should you need to upload new tiles, place the tileset in the `mbtiles` folder, 
 
 ## Deployment
 
-Deployment occurs automatically to [staging](https://zoomapper-staging.zooniverse.org/) with each PR merged to master. You can also run the lita command, `lita deploy zoomappter` in the Zooniverse #ops channel to deploy the staging site to production.
+Deployment occurs automatically to [staging](https://zoomapper-staging.zooniverse.org/) with each PR merged to master. You can also run the lita command, `lita deploy zoomapper` in the Zooniverse #ops channel to deploy the staging site to production.
