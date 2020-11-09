@@ -3,7 +3,8 @@
     "paths": {
       "root": "",
       "mbtiles": "mbtiles"
-    }
+    },
+    "frontPage": false
   },
   "data": {
     "falklands": {
