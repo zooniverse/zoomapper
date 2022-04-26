@@ -1,0 +1,116 @@
+{
+  "version": 8,
+  "name": "basic",
+  "sources": {
+    "v3-openmaptiles": {
+      "url": "https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=1B96pApl6VKjIVhVlMYG",
+      "type": "vector"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "minzoom": 7.0,
+      "maxzoom": 12.0,
+      "paint": {
+        "background-color": "#ffffff"
+      }
+    },
+    {
+      "id": "water_line",
+      "type": "line",
+      "source": "v3-openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "line-color": "rgb(136,170,238)"
+      }
+    },
+    {
+      "id": "water_point",
+      "type": "circle",
+      "source": "v3-openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "circle-color": "rgb(136,170,238)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "water_polygon",
+      "type": "fill",
+      "source": "v3-openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "rgb(136,170,238)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    },
+    {
+      "id": "waterway_line",
+      "type": "line",
+      "source": "v3-openmaptiles",
+      "source-layer": "waterway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgb(136,102,68)"
+      }
+    },
+    {
+      "id": "waterway_point",
+      "type": "circle",
+      "source": "v3-openmaptiles",
+      "source-layer": "waterway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "circle-color": "rgb(136,102,68)",
+        "circle-radius": 2
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ]
+    },
+    {
+      "id": "waterway_polygon",
+      "type": "fill",
+      "source": "v3-openmaptiles",
+      "source-layer": "waterway",
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "fill-color": "rgb(136,102,68)",
+        "fill-opacity": 0.6
+      },
+      "filter": [
+        "==",
+        "$type",
+        "Polygon"
+      ]
+    }
+  ],
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=1B96pApl6VKjIVhVlMYG",
+  "bearing": 0.0,
+  "pitch": 0.0,
+  "center": [
+    -59.56454908788771,
+    -51.77557186700771
+  ],
+  "zoom": 7.0
+}
