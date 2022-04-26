@@ -1,14 +1,22 @@
 {
   "options": {
-    "paths": {
-      "root": "",
-      "mbtiles": "mbtiles"
-    },
-    "frontPage": false
+	  "paths": {
+	    "root": "",
+	    "mbtiles": "mbtiles",
+      "styles": "styles"
+	  },
+	  "frontPage": false
+  },
+  "styles": {
+	  "basic": {
+	    "style": "basic/style.json",
+	    "serve_rendered": true,
+      "serve_data": false
+	  }
   },
   "data": {
-    "falklands": {
-      "mbtiles": "falklands.mbtiles"
-    }
+	  "falklands": {
+	    "mbtiles": "falklands.mbtiles"
+	  }
   }
 }
