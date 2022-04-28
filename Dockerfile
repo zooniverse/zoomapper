@@ -1,4 +1,4 @@
-FROM klokantech/tileserver-gl
+FROM maptiler/tileserver-gl
 
 WORKDIR /data
 
