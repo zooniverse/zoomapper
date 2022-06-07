@@ -1,7 +1,7 @@
 # Zoomapper
 A server that can return custom mbtiles for Zooniverse projects. This repo runs [Tileserver-GL](https://github.com/maptiler/tileserver-gl) under the hood via a [Docker container](https://hub.docker.com/r/klokantech/tileserver-gl).
 
-Staging @ [zoomapper-staging.zooniverse.org](https://zoomapper-staging.zooniverse.org/)  
+Staging @ [zoomapper-staging.zooniverse.org](https://zoomapper-staging.zooniverse.org/)
 Production @ [zoomapper.zooniverse.org](https://zoomapper.zooniverse.org/)
 
 Please visit the [wiki](https://github.com/zooniverse/zoomapper/wiki) for more info.
@@ -38,10 +38,10 @@ Consider a `falklands.mbtiles` file contained in the `mbtiles` directory of this
 }
 ```
 
-Causes the `falklands.mbtiles` tileset to deploy to the appropriate route (https://zoomapper-staging.zooniverse.org/data/falklands/#8/-52/-59). Note the 'data' inclusion in the route. 
+Causes the `falklands.mbtiles` tileset to deploy to the appropriate route (https://zoomapper-staging.zooniverse.org/data/falklands/#8/-52/-59). Note the 'data' inclusion in the route.
 
 Should you need to upload new tiles, place the tileset in the `mbtiles` folder, then add the route name into the `config.json` "data" key, which also includes the name of the relevant "mbtiles" file.
 
 ## Deployment
 
-Deployment occurs automatically to [staging](https://zoomapper-staging.zooniverse.org/) with each PR merged to master. You can also run the lita command, `lita deploy zoomapper` in the Zooniverse #ops channel to deploy the staging site to production.
+There is intentionally only a production deploy of this service. Deployment occurs via chatops (`lita deploy zoomapper`) to https://zoomapper.zooniverse.org.

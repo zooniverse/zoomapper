@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: zoomapper-production-app
-          image: zooniverse/zoomapper:__IMAGE_TAG__
+          image: ghcr.io/zooniverse/zoomapper:__IMAGE_TAG__
           resources:
             requests:
               memory: "200Mi"
@@ -56,7 +56,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: zoomapper.zooniverse.org
+  name: zoomapper.azure.zooniverse.org
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -65,13 +65,17 @@ metadata:
 spec:
   tls:
   - hosts:
-    - zoomapper.zooniverse.org
+    - zoomapper.azure.zooniverse.org
     secretName: zoomapper-production-tls
   rules:
-  - host: zoomapper.zooniverse.org
+  - host: zoomapper.azure.zooniverse.org
     http:
       paths:
-      - backend:
-          serviceName: zoomapper-production-app
-          servicePort: 80
+      - pathType: Prefix
         path: /
+        backend:
+          service:
+            name: zoomapper-production-app
+            port:
+              number: 80
+
