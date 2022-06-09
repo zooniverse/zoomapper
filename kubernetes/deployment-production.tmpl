@@ -53,7 +53,7 @@ spec:
   type: NodePort
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: zoomapper.azure.zooniverse.org
@@ -78,4 +78,3 @@ spec:
             name: zoomapper-production-app
             port:
               number: 80
-
